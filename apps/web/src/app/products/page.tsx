@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { getAllProducts, getProductsPage } from '@/lib/sanity.queries'
 
@@ -150,9 +151,11 @@ export default async function ProductsPage() {
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
             {productsPageData?.ctaSection?.description || "Get in touch with our team. We're always working on new designs and would love to hear from you."}
           </p>
-          <Button variant="accent" size="lg">
-            {productsPageData?.ctaSection?.buttonText || 'Contact Us'}
-          </Button>
+          <Link href="/contact">
+            <Button variant="accent" size="lg">
+              {productsPageData?.ctaSection?.buttonText || 'Contact Us'}
+            </Button>
+          </Link>
         </div>
       </section>
     </div>

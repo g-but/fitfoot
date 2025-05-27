@@ -44,6 +44,12 @@ export async function Header() {
                   Products
                 </Link>
                 <Link 
+                  href="/shop" 
+                  className="text-sm font-medium text-foreground/60 transition-colors hover:text-foreground"
+                >
+                  Shop
+                </Link>
+                <Link 
                   href="/about" 
                   className="text-sm font-medium text-foreground/60 transition-colors hover:text-foreground"
                 >
@@ -61,9 +67,11 @@ export async function Header() {
 
           {/* CTA Button */}
           <div className="flex items-center space-x-4">
-            <Button variant="accent" size="sm" className="hidden sm:inline-flex">
-              {siteSettings?.headerCta?.text || 'Shop Now'}
-            </Button>
+            <Link href={siteSettings?.headerCta?.href || '/shop'}>
+              <Button variant="accent" size="sm" className="hidden sm:inline-flex">
+                {siteSettings?.headerCta?.text || 'Shop Now'}
+              </Button>
+            </Link>
             
             {/* Mobile menu button */}
             <Button variant="ghost" size="sm" className="md:hidden">

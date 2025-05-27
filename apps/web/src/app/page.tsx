@@ -1,6 +1,10 @@
 import React from 'react'
+import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { getHomePage, getAllProducts } from '@/lib/sanity.queries'
+
+// Force dynamic rendering to prevent caching issues
+export const dynamic = 'force-dynamic'
 
 export default async function HomePage() {
   // Fetch data from Sanity
@@ -30,12 +34,16 @@ export default async function HomePage() {
             {heroSubtitle}
           </p>
           <div className="mt-8 space-x-4">
-            <Button variant="accent" size="lg">
-              Shop Collection
-            </Button>
-            <Button variant="outline" size="lg">
-              Learn More
-            </Button>
+            <Link href="/shop">
+              <Button variant="accent" size="lg">
+                Shop Collection
+              </Button>
+            </Link>
+            <Link href="/about">
+              <Button variant="outline" size="lg">
+                Learn More
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -58,9 +66,11 @@ export default async function HomePage() {
                     <p className="text-gray-600 mb-4">
                       {product.materials || '100% genuine leather'}, designed in {product.designedIn || 'Switzerland'}
                     </p>
-                    <Button variant="outline" className="w-full">
-                      View Details
-                    </Button>
+                    <Link href={`/products/${product.slug?.current || product._id}`}>
+                      <Button variant="outline" className="w-full">
+                        View Details
+                      </Button>
+                    </Link>
                   </div>
                 </div>
               ))
@@ -76,9 +86,11 @@ export default async function HomePage() {
                     <p className="text-gray-600 mb-4">
                       100% genuine leather, designed in Switzerland
                     </p>
-                    <Button variant="outline" className="w-full">
-                      View Details
-                    </Button>
+                    <Link href="/shop">
+                      <Button variant="outline" className="w-full">
+                        View Details
+                      </Button>
+                    </Link>
                   </div>
                 </div>
               ))
