@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { getAboutPage } from '@/lib/sanity.queries'
 
@@ -70,9 +71,11 @@ export default async function AboutPage() {
               <p className="text-lg text-gray-600 mb-8">
                 {content.length > 0 ? content[0]?.children?.[0]?.text : 'Founded in Switzerland, Fitfoot represents the perfect fusion of traditional craftsmanship and modern design. We believe that quality footwear and accessories should be both beautiful and built to last.'}
               </p>
-              <Button variant="accent" size="lg">
-                Our Story
-              </Button>
+              <Link href="/about">
+                <Button variant="accent" size="lg">
+                  Our Story
+                </Button>
+              </Link>
             </div>
             <div className="aspect-square bg-gray-200 rounded-lg"></div>
           </div>
@@ -168,12 +171,16 @@ export default async function AboutPage() {
             Discover our collection of premium footwear and accessories, each piece designed with Swiss precision and crafted to last.
           </p>
           <div className="space-x-4">
-            <Button variant="secondary" size="lg">
-              Shop Collection
-            </Button>
-            <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary">
-              Contact Us
-            </Button>
+            <Link href="/shop">
+              <Button variant="secondary" size="lg">
+                Shop Collection
+              </Button>
+            </Link>
+            <Link href="/contact">
+              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary">
+                Contact Us
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

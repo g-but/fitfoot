@@ -61,6 +61,7 @@ export const getHomePage = async (): Promise<HomePage | null> => {
     }
   `)
   
+  console.log('🏠 Home page data from Sanity:', JSON.stringify(data, null, 2))
   return data
 }
 
