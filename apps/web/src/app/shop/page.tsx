@@ -120,8 +120,8 @@ export default function ShopPage() {
         ])
 
         if (medusaProducts.length > 0) {
-          setProducts(medusaProducts)
-          setCollections([{ id: 'all', title: 'All Products', handle: 'all' }, ...medusaCollections])
+          setProducts(medusaProducts as any)
+          setCollections([{ id: 'all', title: 'All Products', handle: 'all' }, ...medusaCollections as any])
         } else {
           // Fallback to mock data
           setProducts(mockProducts)
