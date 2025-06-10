@@ -2,12 +2,27 @@ import type { Metadata } from 'next'
 import { getSiteSettings } from './sanity.queries'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const siteSettings = await getSiteSettings()
+  let siteSettings = null
+  try {
+    siteSettings = await getSiteSettings()
+  } catch (error) {
+    console.error('Failed to fetch site settings:', error)
+  }
   
   const title = siteSettings?.title || 'Fitfoot - Swiss-designed quality footwear'
   const description = siteSettings?.description || 'Step into quality. Designed in Switzerland. Premium footwear and accessories crafted with genuine materials.'
-  const keywords = siteSettings?.keywords || ['footwear', 'shoes', 'Swiss design', 'quality', 'leather', 'accessories']
+  const keywords = (siteSettings?.keywords && siteSettings.keywords.length > 0) 
+    ? siteSettings.keywords 
+    : ['footwear', 'shoes', 'Swiss design', 'quality', 'leather', 'accessories']
   const siteUrl = siteSettings?.siteUrl || process.env.NEXT_PUBLIC_SITE_URL || 'https://fitfoot.ch'
+  
+  // Ensure we have a valid URL
+  let validSiteUrl = siteUrl
+  try {
+    new URL(siteUrl)
+  } catch {
+    validSiteUrl = 'https://fitfoot.ch'
+  }
 
   return {
     title,
@@ -16,11 +31,11 @@ export async function generateMetadata(): Promise<Metadata> {
     authors: [{ name: 'Fitfoot' }],
     creator: 'Fitfoot',
     publisher: 'Fitfoot',
-    metadataBase: new URL(siteUrl),
+    metadataBase: new URL(validSiteUrl),
     openGraph: {
       type: 'website',
       locale: 'en_US',
-      url: siteUrl,
+      url: validSiteUrl,
       title,
       description,
       siteName: 'Fitfoot',

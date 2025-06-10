@@ -34,7 +34,9 @@ export default async function AboutPage() {
   ]
 
   // Use Sanity data or fallback
-  const values = aboutPageData?.valuesSection?.values || fallbackValues
+  const values = (aboutPageData?.valuesSection?.values && aboutPageData.valuesSection.values.length > 0) 
+    ? aboutPageData.valuesSection.values 
+    : fallbackValues
   const teamMembers = aboutPageData?.teamSection?.teamMembers || [
     { name: 'Team Member 1', role: 'Founder & CEO', bio: 'Passionate about creating exceptional products that combine Swiss design principles with sustainable practices.' },
     { name: 'Team Member 2', role: 'Head of Design', bio: 'Passionate about creating exceptional products that combine Swiss design principles with sustainable practices.' },

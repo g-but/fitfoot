@@ -2,50 +2,181 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom logo styles for better display */
+.logo-container {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+
+.logo-image {
+  object-fit: contain;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* Aggressive logo cropping to remove whitespace */
+.logo-cropped {
+  object-fit: cover;
+  object-position: center 40%; /* Focus on the central logo area */
+  transform: scale(1.8); /* Zoom in significantly to crop whitespace */
+  filter: contrast(1.1) brightness(1.05); /* Enhance visibility */
+}
+
+/* Logo hover effects */
+.logo-link:hover .logo-image {
+  transition: transform 0.2s ease-in-out;
+}
+
+.logo-link:hover .logo-cropped {
+  transform: scale(1.9); /* Slightly more zoom on hover */
+}
+
+/* Refined gradient effects */
+.gold-gradient {
+  background: linear-gradient(135deg, #B8860B 0%, #DAA520 30%, #D4AF37 70%, #B8860B 100%);
+}
+
+.gold-text-gradient {
+  background: linear-gradient(135deg, #B8860B 0%, #DAA520 30%, #D4AF37 70%, #B8860B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtle-gradient {
+  background: linear-gradient(135deg, #FAFAFA 0%, #F5F5F5 50%, #F0F0F0 100%);
+}
+
+.luxury-shadow {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06), 0 1px 4px rgba(0, 0, 0, 0.03);
+}
+
+.soft-glass-effect {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Refined button styles */
+.btn-gold {
+  background: linear-gradient(135deg, #B8860B 0%, #DAA520 30%, #D4AF37 70%, #B8860B 100%);
+  color: #FFFFFF;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(184, 134, 11, 0.25);
+}
+
+.btn-gold:hover {
+  background: linear-gradient(135deg, #A0750A 0%, #C8941C 30%, #BF9D32 70%, #A0750A 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(184, 134, 11, 0.3);
+}
+
+.btn-outline-gold {
+  border: 1.5px solid #B8860B;
+  color: #B8860B;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-gold:hover {
+  background: linear-gradient(135deg, #B8860B 0%, #DAA520 30%, #D4AF37 70%, #B8860B 100%);
+  color: #FFFFFF;
+  border-color: transparent;
+}
+
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222.2 84% 4.9%;
-    --muted: 210 40% 96%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96%;
-    --accent-foreground: 222.2 84% 4.9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-    --radius: 0.5rem;
+    /* Refined Monochromatic Base */
+    --background: 0 0% 99%;               /* Soft White #FCFCFC */
+    --foreground: 0 0% 12%;               /* Charcoal #1F1F1F */
+    
+    /* Card surfaces */
+    --card: 0 0% 100%;                    /* Pure White */
+    --card-foreground: 0 0% 12%;          /* Charcoal */
+    
+    /* Elevated surfaces */
+    --popover: 0 0% 100%;                 /* Pure White */
+    --popover-foreground: 0 0% 12%;       /* Charcoal */
+    
+    /* Refined gold accent - much more subtle */
+    --primary: 43 50% 35%;                /* Muted Gold #B8860B */
+    --primary-foreground: 0 0% 100%;      /* White on gold */
+    
+    /* Subtle gray surfaces */
+    --secondary: 0 0% 97%;                /* Very Light Gray #F7F7F7 */
+    --secondary-foreground: 0 0% 12%;     /* Charcoal */
+    
+    /* Muted backgrounds */
+    --muted: 0 0% 98%;                    /* Almost White #FAFAFA */
+    --muted-foreground: 0 0% 40%;         /* Medium Gray #666666 */
+    
+    /* Accent colors */
+    --accent: 43 50% 35%;                 /* Muted Gold #B8860B */
+    --accent-foreground: 0 0% 100%;       /* White */
+    
+    /* Status colors */
+    --destructive: 0 70% 50%;             /* Muted Red */
+    --destructive-foreground: 0 0% 100%;  /* White */
+    
+    /* Borders and inputs */
+    --border: 0 0% 92%;                   /* Soft Border #EBEBEB */
+    --input: 0 0% 96%;                    /* Input Gray #F5F5F5 */
+    --ring: 43 50% 35%;                   /* Muted Gold focus ring */
+    
+    --radius: 0.375rem;
+    
+    /* Extended refined palette */
+    --gold: 43 50% 35%;                   /* #B8860B */
+    --gold-light: 45 60% 50%;             /* #DAA520 */
+    --gold-dark: 43 45% 25%;              /* #8B6914 */
+    --gray-50: 0 0% 98%;                  /* #FAFAFA */
+    --gray-100: 0 0% 97%;                 /* #F7F7F7 */
+    --gray-200: 0 0% 92%;                 /* #EBEBEB */
+    --gray-300: 0 0% 85%;                 /* #D9D9D9 */
+    --gray-400: 0 0% 60%;                 /* #999999 */
+    --gray-500: 0 0% 40%;                 /* #666666 */
+    --gray-600: 0 0% 30%;                 /* #4D4D4D */
+    --gray-700: 0 0% 22%;                 /* #383838 */
+    --gray-800: 0 0% 15%;                 /* #262626 */
+    --gray-900: 0 0% 12%;                 /* #1F1F1F */
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    /* Sophisticated dark theme */
+    --background: 0 0% 12%;               /* Charcoal #1F1F1F */
+    --foreground: 0 0% 98%;               /* Soft White #FAFAFA */
+    
+    --card: 0 0% 15%;                     /* Dark Gray #262626 */
+    --card-foreground: 0 0% 98%;          /* Soft White */
+    
+    --popover: 0 0% 15%;                  /* Dark Gray */
+    --popover-foreground: 0 0% 98%;       /* Soft White */
+    
+    --primary: 43 50% 35%;                /* Gold stays consistent */
+    --primary-foreground: 0 0% 100%;      /* White on gold */
+    
+    --secondary: 0 0% 22%;                /* Dark Gray */
+    --secondary-foreground: 0 0% 98%;     /* Soft White */
+    
+    --muted: 0 0% 18%;                    /* Dark Gray */
+    --muted-foreground: 0 0% 60%;         /* Light Gray */
+    
+    --accent: 43 50% 35%;                 /* Gold */
+    --accent-foreground: 0 0% 100%;       /* White */
+    
+    --destructive: 0 70% 50%;             /* Red */
+    --destructive-foreground: 0 0% 100%;  /* White */
+    
+    --border: 0 0% 22%;                   /* Dark Border */
+    --input: 0 0% 18%;                    /* Dark Input */
+    --ring: 43 50% 35%;                   /* Gold focus ring */
   }
 }
 
@@ -55,5 +186,20 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Better focus states */
+  *:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
   }
 } 
