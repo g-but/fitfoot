@@ -1,5 +1,9 @@
 # Fitfoot - Swiss-designed quality footwear
 
+**Created:** 2024-12-28  
+**Last Modified:** 2024-12-28  
+**Last Modified Summary:** Updated with comprehensive documentation structure and improvement plan
+
 A modern, fast marketing website for Fitfoot built with Next.js 14 and Sanity CMS.
 
 ## 🚀 Tech Stack
@@ -165,6 +169,28 @@ npm run deploy
 ## 📞 Support
 
 For questions or issues, please contact the development team or create an issue in the repository.
+
+---
+
+## 📚 Documentation
+
+For comprehensive documentation, see our [Documentation Hub](./docs/README.md):
+
+- **[🚀 Quick Start](./docs/getting-started/quick-start.md)** - Get up and running quickly
+- **[🏛️ System Architecture](./docs/architecture/system-overview.md)** - Understand the system design
+- **[🧪 Testing Strategy](./docs/development/testing.md)** - Testing approach and implementation
+- **[🚀 Improvement Plan](./IMPROVEMENT_PLAN.md)** - Comprehensive system improvement roadmap
+
+## 🔍 Code Review Status
+
+The system has undergone a comprehensive code review. Key findings:
+
+- **System Design:** B+ (7.5/10) - Strong architectural foundations
+- **Software Architecture:** B (7/10) - Clean layered architecture
+- **Data Structures & Algorithms:** B- (6.5/10) - Well-defined types
+- **Testing:** D (3/10) - **Critical gap requiring immediate attention**
+
+See [IMPROVEMENT_PLAN.md](./IMPROVEMENT_PLAN.md) for detailed improvement roadmap.
 
 ---
 
