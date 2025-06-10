@@ -3,7 +3,7 @@ const { createClient } = require('@sanity/client')
 const client = createClient({
   projectId: 'm6r6y2se',
   dataset: 'production',
-  apiVersion: '2025-05-27',
+  apiVersion: '2023-05-27',
   token: process.env.SANITY_AUTH_TOKEN, // You'll need to get this from Sanity
   useCdn: false
 })
