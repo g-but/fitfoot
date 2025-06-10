@@ -92,3 +92,6 @@ jspm_packages/
 # Temporary folders
 tmp/
 temp/
+backup_photos/
+*.psd
+*.raw
