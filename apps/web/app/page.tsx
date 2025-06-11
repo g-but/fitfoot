@@ -68,7 +68,7 @@ export default async function HomePage() {
             
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 animate-scale-in">
-              <Link href="/shop">
+              <Link href="/products">
                 <Button size="xl" className="btn-gold group">
                   Explore Collection
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -208,7 +208,7 @@ export default async function HomePage() {
                       </div>
                     </div>
                     
-                    <Link href="/shop">
+                    <Link href="/products">
                       <Button className="w-full btn-outline-gold group">
                         View Details
                         <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
