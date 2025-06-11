@@ -2,6 +2,12 @@ import * as Sentry from '@sentry/nextjs'
 
 // This function is called when the Next.js server starts
 export async function register() {
+  // Skip Sentry in development to avoid cluttering terminal
+  if (process.env.NODE_ENV === 'development') {
+    console.log('Sentry: Disabled in development for cleaner terminal output')
+    return
+  }
+
   // Check if we're in the server environment
   if (process.env.NEXT_RUNTIME === 'nodejs') {
     // Server-side Sentry initialization
@@ -9,10 +15,10 @@ export async function register() {
       dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
       
       // Performance Monitoring
-      tracesSampleRate: process.env.NODE_ENV === 'production' ? 0.1 : 1.0,
+      tracesSampleRate: process.env.NODE_ENV === 'production' ? 0.1 : 0,
       
       // Development vs Production settings
-      debug: process.env.NODE_ENV === 'development',
+      debug: false,
       
       // Release tracking
       release: process.env.VERCEL_GIT_COMMIT_SHA || 'development',
@@ -61,10 +67,10 @@ export async function register() {
       dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
       
       // Performance Monitoring (lighter for edge)
-      tracesSampleRate: process.env.NODE_ENV === 'production' ? 0.05 : 1.0,
+      tracesSampleRate: process.env.NODE_ENV === 'production' ? 0.05 : 0,
       
       // Development vs Production settings
-      debug: process.env.NODE_ENV === 'development',
+      debug: false,
       
       // Release tracking
       release: process.env.VERCEL_GIT_COMMIT_SHA || 'development',

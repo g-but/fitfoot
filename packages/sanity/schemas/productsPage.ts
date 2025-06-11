@@ -1,4 +1,4 @@
-import {defineType, defineField} from 'sanity'
+import { defineField, defineType } from 'sanity'
 
 export default defineType({
   name: 'productsPage',
@@ -22,6 +22,19 @@ export default defineType({
       type: 'text',
       title: 'Hero Subtitle',
       initialValue: 'Discover our collection of premium footwear and accessories, each piece designed in Switzerland and crafted with the finest materials.',
+    }),
+    defineField({
+      name: 'heroSubline',
+      type: 'string',
+      title: 'Hero Subline (Gold Text)',
+      initialValue: 'Last Forever',
+      description: 'The golden highlighted text that appears below the main hero title',
+    }),
+    defineField({
+      name: 'heroDescription',
+      type: 'text',
+      title: 'Hero Description',
+      initialValue: 'Where precision meets purpose. Every product represents our commitment to exceptional quality and environmental responsibility.',
     }),
     defineField({
       name: 'heroImage',
@@ -61,6 +74,30 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'collectionsTitle',
+      type: 'string',
+      title: 'Collections Section Title',
+      initialValue: 'Our Product Lines',
+    }),
+    defineField({
+      name: 'collectionsDescription',
+      type: 'text',
+      title: 'Collections Section Description',
+      initialValue: 'Three collections, each designed with specific needs in mind, all sharing our commitment to quality and sustainability.',
+    }),
+    defineField({
+      name: 'sustainabilityTitle',
+      type: 'string',
+      title: 'Sustainability Section Title',
+      initialValue: "Don't Throw Away. Trade In.",
+    }),
+    defineField({
+      name: 'sustainabilityDescription',
+      type: 'text',
+      title: 'Sustainability Section Description',
+      initialValue: 'Your old shoes have value. We believe in circular fashion and zero waste. Send us your worn footwear and we\'ll give you a discount on your next purchase.',
+    }),
+    defineField({
       name: 'ctaSection',
       type: 'object',
       title: 'Call to Action Section',
@@ -69,13 +106,19 @@ export default defineType({
           name: 'title',
           type: 'string',
           title: 'CTA Title',
-          initialValue: "Can't find what you're looking for?",
+          initialValue: 'Ready to Experience',
+        },
+        {
+          name: 'subline',
+          type: 'string',
+          title: 'CTA Subline (Gold Text)',
+          initialValue: 'Lasting Quality?',
         },
         {
           name: 'description',
           type: 'text',
           title: 'CTA Description',
-          initialValue: "Get in touch with our team. We're always working on new designs and would love to hear from you.",
+          initialValue: 'Discover footwear that\'s built to last, designed to perform, and created with respect for our planet. Your perfect pair is waiting.',
         },
         {
           name: 'buttonText',

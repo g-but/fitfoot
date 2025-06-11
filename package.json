@@ -10,6 +10,9 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
+    "dev:clean": "turbo dev --force",
+    "dev:web": "cd apps/web && npm run dev",
+    "dev:sanity": "cd packages/sanity && npm run dev",
     "lint": "turbo lint",
     "type-check": "turbo type-check",
     "test": "turbo test",
@@ -18,14 +21,14 @@
     "studio": "cd packages/sanity && npm run dev"
   },
   "devDependencies": {
-    "@turbo/gen": "^1.12.4",
-    "turbo": "^1.12.4",
-    "prettier": "^3.2.5",
+    "@turbo/gen": "^1.13.4",
+    "turbo": "^1.13.4",
+    "prettier": "^3.0.0",
     "eslint": "^8.57.0",
-    "typescript": "^5.4.2"
+    "typescript": "^5.2.0"
   },
-  "packageManager": "npm@10.0.0",
+  "packageManager": "npm@8.15.0",
   "engines": {
-    "node": ">=18.17.0"
+    "node": ">=18"
   }
 } 

@@ -104,13 +104,20 @@ export interface ProductsPage extends SanityDocument {
   title: string
   heroTitle: string
   heroSubtitle: string
+  heroSubline: string
+  heroDescription: string
   heroImage?: SanityImage
+  collectionsTitle: string
+  collectionsDescription: string
+  sustainabilityTitle: string
+  sustainabilityDescription: string
   filterButtons?: Array<{
     label: string
     value: string
   }>
   ctaSection?: {
     title: string
+    subline: string
     description: string
     buttonText: string
   }
