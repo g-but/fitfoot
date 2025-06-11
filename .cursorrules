@@ -1,0 +1,49 @@
+## Cursor + Sentry Integration Rules
+
+### Error Tracking Workflow
+When debugging errors from Sentry:
+1. Always ask for the Sentry error ID or stack trace
+2. Look for the exact file and line number mentioned
+3. Check for recent commits that might have caused the issue
+4. Suggest specific fixes based on the error context
+
+### Sentry Best Practices  
+- Use `Sentry.captureException()` for caught errors
+- Use `Sentry.captureMessage()` for important events
+- Add user context with `Sentry.setUser()`
+- Add breadcrumbs with `Sentry.addBreadcrumb()`
+- Set tags with `Sentry.setTag()` for better filtering
+
+### Error Fix Templates
+When fixing Sentry errors, always:
+1. Add proper error handling
+2. Include user context
+3. Add relevant tags for filtering
+4. Test the fix locally before deploying
+
+### Performance Monitoring
+- Monitor Core Web Vitals (LCP, CLS, FCP)
+- Track API call performance  
+- Monitor database query times
+- Set up custom performance metrics
+
+### Code Patterns
+Prefer this error handling pattern:
+```typescript
+try {
+  // risky operation
+} catch (error) {
+  Sentry.captureException(error, {
+    tags: { section: 'payment' },
+    user: { id: userId },
+    extra: { context: 'checkout' }
+  });
+  // fallback behavior
+}
+```
+
+### Debugging Commands
+Helpful commands for Sentry debugging:
+- Check health: `curl http://localhost:3000/api/health`
+- View logs: `npm run dev` (look for Sentry Logger entries)
+- Test error: Visit `/sentry-demo` and click test buttons 

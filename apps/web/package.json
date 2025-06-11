@@ -12,7 +12,9 @@
     "test:watch": "vitest --watch",
     "test:coverage": "vitest --coverage",
     "test:ui": "vitest --ui",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "lighthouse": "lhci autorun",
+    "lighthouse:build": "npm run build && npm run lighthouse"
   },
   "dependencies": {
     "@medusajs/js-sdk": "^2.8.3",
@@ -24,6 +26,8 @@
     "@radix-ui/react-slot": "^1.0.2",
     "@sanity/client": "^6.15.7",
     "@sanity/image-url": "^1.0.2",
+    "@sentry/nextjs": "^9.28.1",
+    "@sentry/tracing": "^7.120.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "groq": "^3.36.3",
@@ -34,6 +38,7 @@
     "tailwind-merge": "^2.2.1"
   },
   "devDependencies": {
+    "@lhci/cli": "^0.15.0",
     "@playwright/test": "^1.42.1",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^14.2.1",

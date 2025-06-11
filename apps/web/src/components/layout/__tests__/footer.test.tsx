@@ -44,14 +44,14 @@ describe('Footer Component', () => {
       
       const brandName = screen.getByText('Fitfoot')
       expect(brandName).toBeInTheDocument()
-      expect(brandName).toHaveClass('text-2xl', 'font-bold')
+      expect(brandName).toHaveClass('font-semibold', 'text-xl')
     })
 
     it('should render company description', async () => {
       mockGetSiteSettings.mockResolvedValue(mockSiteSettings)
       render(await Footer())
       
-      const description = screen.getByText(/Step into quality.*Switzerland.*Premium footwear/)
+      const description = screen.getByText(/Premium footwear and accessories crafted with genuine materials/)
       expect(description).toBeInTheDocument()
       expect(description).toHaveClass('text-gray-300', 'text-sm')
     })
@@ -68,7 +68,7 @@ describe('Footer Component', () => {
       mockGetSiteSettings.mockResolvedValue(null)
       render(await Footer())
       
-      const defaultCopyright = screen.getByText('© 2025 Fitfoot. All rights reserved. Designed in Switzerland.')
+      const defaultCopyright = screen.getByText('© 2025 Fitfoot. All rights reserved.')
       expect(defaultCopyright).toBeInTheDocument()
     })
   })
@@ -92,9 +92,9 @@ describe('Footer Component', () => {
       render(await Footer())
       
       // Use role heading to target the section header specifically
-      expect(screen.getByRole('heading', { name: 'Products' })).toBeInTheDocument()
+      expect(screen.getByRole('heading', { name: 'Collections' })).toBeInTheDocument()
       
-      const sneakersLink = screen.getByRole('link', { name: 'Sneakers' })
+      const sneakersLink = screen.getByRole('link', { name: 'Premium Sneakers' })
       expect(sneakersLink).toHaveAttribute('href', '/products?type=sneaker')
     })
   })
@@ -106,8 +106,8 @@ describe('Footer Component', () => {
       
       // Use role heading to target the section header specifically
       expect(screen.getByRole('heading', { name: 'Contact' })).toBeInTheDocument()
-      expect(screen.getByText('Switzerland')).toBeInTheDocument()
-      expect(screen.getByText('info@fitfoot.ch')).toBeInTheDocument()
+      expect(screen.getByText('info@fitfoot.com')).toBeInTheDocument()
+      expect(screen.getByText('Customer Support')).toBeInTheDocument()
     })
   })
 
@@ -126,7 +126,7 @@ describe('Footer Component', () => {
       
       // Check that each has proper styling
       socialLinks.forEach(link => {
-        expect(link).toHaveClass('text-gray-300', 'hover:text-white', 'transition-colors')
+        expect(link).toHaveClass('text-gray-300', 'hover:text-primary', 'transition-colors')
       })
     })
 
@@ -172,7 +172,7 @@ describe('Footer Component', () => {
       const { container } = render(await Footer())
       
       const footer = container.querySelector('footer')
-      expect(footer).toHaveClass('bg-primary', 'text-white')
+      expect(footer).toHaveClass('bg-gray-900/95', 'text-white')
     })
 
     it('should have proper section spacing', async () => {
@@ -183,8 +183,8 @@ describe('Footer Component', () => {
       const quickLinksHeader = screen.getByRole('heading', { name: 'Quick Links' })
       expect(quickLinksHeader).toHaveClass('text-lg', 'font-semibold')
       
-      const productsHeader = screen.getByRole('heading', { name: 'Products' })
-      expect(productsHeader).toHaveClass('text-lg', 'font-semibold')
+      const collectionsHeader = screen.getByRole('heading', { name: 'Collections' })
+      expect(collectionsHeader).toHaveClass('text-lg', 'font-semibold')
       
       const contactHeader = screen.getByRole('heading', { name: 'Contact' })
       expect(contactHeader).toHaveClass('text-lg', 'font-semibold')
@@ -202,7 +202,7 @@ describe('Footer Component', () => {
       
       // Should have proper heading hierarchy
       const headings = screen.getAllByRole('heading', { level: 3 })
-      expect(headings).toHaveLength(3) // Quick Links, Products, Contact
+      expect(headings).toHaveLength(3) // Quick Links, Collections, Contact
     })
 
     it('should have keyboard accessible links', async () => {
@@ -223,12 +223,12 @@ describe('Footer Component', () => {
       render(await Footer())
       
       // Check that text elements have appropriate contrast classes
-      const grayText = screen.getByText(/Step into quality/)
+      const grayText = screen.getByText(/Premium footwear and accessories/)
       expect(grayText).toHaveClass('text-gray-300')
       
       // Links should have hover states for better accessibility
       const homeLink = screen.getByRole('link', { name: 'Home' })
-      expect(homeLink).toHaveClass('hover:text-white')
+      expect(homeLink).toHaveClass('hover:text-primary')
     })
   })
 
@@ -239,7 +239,7 @@ describe('Footer Component', () => {
       
       // Should still render with default values
       expect(screen.getByText('Fitfoot')).toBeInTheDocument()
-      expect(screen.getByText('© 2025 Fitfoot. All rights reserved. Designed in Switzerland.')).toBeInTheDocument()
+      expect(screen.getByText('© 2025 Fitfoot. All rights reserved.')).toBeInTheDocument()
     })
 
     it('should handle missing footer settings gracefully', async () => {
@@ -256,7 +256,7 @@ describe('Footer Component', () => {
       render(await Footer())
       
       // Should render with default copyright
-      expect(screen.getByText('© 2025 Fitfoot. All rights reserved. Designed in Switzerland.')).toBeInTheDocument()
+      expect(screen.getByText('© 2025 Fitfoot. All rights reserved.')).toBeInTheDocument()
     })
 
     it('should handle getSiteSettings promise rejection', async () => {

@@ -117,10 +117,10 @@ describe('HomePage', () => {
       render(await HomePage())
 
       const shopButton = screen.getByRole('link', { name: /shop collection/i })
-      const learnButton = screen.getByRole('link', { name: /learn more/i })
+      const storyButton = screen.getByRole('link', { name: /our story/i })
 
       expect(shopButton).toHaveAttribute('href', '/shop')
-      expect(learnButton).toHaveAttribute('href', '/about')
+      expect(storyButton).toHaveAttribute('href', '/about')
     })
   })
 
@@ -142,9 +142,9 @@ describe('HomePage', () => {
 
       render(await HomePage())
 
-      expect(screen.getByText('Premium Sneaker 1')).toBeInTheDocument()
-      expect(screen.getByText('Premium Sneaker 2')).toBeInTheDocument()
-      expect(screen.getByText('Premium Sneaker 3')).toBeInTheDocument()
+      expect(screen.getByText('Premium Collection 1')).toBeInTheDocument()
+      expect(screen.getByText('Premium Collection 2')).toBeInTheDocument()
+      expect(screen.getByText('Premium Collection 3')).toBeInTheDocument()
     })
 
     it('should generate correct product links', async () => {
@@ -214,9 +214,9 @@ describe('HomePage', () => {
 
       render(await HomePage())
 
-      expect(screen.getByText('Swiss Craftsmanship')).toBeInTheDocument()
-      expect(screen.getByText('100% genuine leather')).toBeInTheDocument()
-      expect(screen.getByText('Designed in Switzerland')).toBeInTheDocument()
+      expect(screen.getByText('Swiss Craftsmanship Excellence')).toBeInTheDocument()
+      expect(screen.getByText('Premium materials')).toBeInTheDocument()
+      expect(screen.getByText('Swiss design')).toBeInTheDocument()
     })
 
     it('should render feature list with correct styling', async () => {
@@ -331,12 +331,12 @@ describe('HomePage', () => {
 
       render(await HomePage())
 
-      // Check for primary and accent color usage
-      const primaryElements = document.querySelectorAll('.text-primary')
-      const backgroundElements = document.querySelectorAll('.bg-neutral-light')
+      // Check for actual color classes used in the component
+      const foregroundElements = document.querySelectorAll('.text-foreground')
+      const cardElements = document.querySelectorAll('.bg-card')
       
-      expect(primaryElements.length).toBeGreaterThan(0)
-      expect(backgroundElements.length).toBeGreaterThan(0)
+      expect(foregroundElements.length).toBeGreaterThan(0)
+      expect(cardElements.length).toBeGreaterThan(0)
     })
   })
 }) 
