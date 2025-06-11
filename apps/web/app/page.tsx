@@ -248,8 +248,8 @@ export default async function HomePage() {
                           <CheckCircle className="w-4 h-4 text-primary" />
                         </div>
                         <div>
-                          <h4 className="font-semibold text-foreground mb-1">{feature.title || feature.text}</h4>
-                          <p className="text-muted-foreground">{feature.description || 'Premium quality and attention to detail'}</p>
+                          <h4 className="font-semibold text-foreground mb-1">{feature.text}</h4>
+                          <p className="text-muted-foreground">Premium quality and attention to detail</p>
                         </div>
                       </div>
                     ))
