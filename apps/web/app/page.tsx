@@ -1,7 +1,7 @@
-import React from 'react'
-import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { getHomePage, getAllProducts } from '@/lib/sanity.queries'
+import { getAllProducts, getHomePage } from '@/lib/sanity.queries'
+import Link from 'next/link'
+import React from 'react'
 
 // Force dynamic rendering to prevent caching issues
 export const dynamic = 'force-dynamic'

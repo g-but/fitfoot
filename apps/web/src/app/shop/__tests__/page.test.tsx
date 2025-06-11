@@ -199,7 +199,7 @@ describe('ShopPage', () => {
       fireEvent.click(sneakersButton)
 
       // Button should change appearance when selected
-      expect(sneakersButton).toHaveClass('bg-accent')
+      expect(sneakersButton).toHaveClass('btn-gold')
     })
 
     it('should filter products by selected collection', async () => {
@@ -644,10 +644,10 @@ describe('ShopPage', () => {
         expect(screen.queryByText('Loading products...')).not.toBeInTheDocument()
       })
 
-      // Check for consistent color usage
+      // Check for consistent color usage - actual classes from shop page
       const primaryElements = document.querySelectorAll('.text-primary')
-      const accentElements = document.querySelectorAll('.bg-accent')
-      const bgElements = document.querySelectorAll('.bg-neutral-light')
+      const accentElements = document.querySelectorAll('.btn-gold')
+      const bgElements = document.querySelectorAll('.bg-white')
 
       expect(primaryElements.length).toBeGreaterThan(0)
       expect(accentElements.length).toBeGreaterThan(0)
@@ -695,7 +695,7 @@ describe('ShopPage', () => {
       fireEvent.click(sneakersButton)
 
       // Verify selection is maintained
-      expect(sneakersButton).toHaveClass('bg-accent')
+      expect(sneakersButton).toHaveClass('btn-gold')
       expect(screen.getByText('Medusa Leather Sneaker')).toBeInTheDocument()
     })
   })

@@ -27,7 +27,7 @@ describe('Button Component', () => {
     render(<Button variant="accent">Accent Button</Button>)
     
     const button = screen.getByRole('button')
-    expect(button).toHaveClass('bg-accent')
+    expect(button).toHaveClass('btn-gold')
   })
   
   it('should apply size styles correctly', () => {
