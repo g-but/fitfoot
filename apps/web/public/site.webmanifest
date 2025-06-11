@@ -1,0 +1,23 @@
+{
+  "name": "Fitfoot - Premium Swiss Footwear & Accessories",
+  "short_name": "Fitfoot",
+  "description": "Step into quality. Premium footwear and accessories designed in Switzerland.",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#B8860B",
+  "background_color": "#FFFFFF",
+  "display": "standalone",
+  "start_url": "/",
+  "orientation": "portrait-primary",
+  "categories": ["shopping", "lifestyle", "fashion"]
+} 
