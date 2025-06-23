@@ -1,4 +1,4 @@
-import {defineType, defineField} from 'sanity'
+import { defineField, defineType } from 'sanity'
 
 export default defineType({
   name: 'siteSettings',
@@ -9,20 +9,20 @@ export default defineType({
       name: 'title',
       type: 'string',
       title: 'Site Title',
-      initialValue: 'Fitfoot - Swiss-designed quality footwear',
+      initialValue: 'Fitfoot - Premium Quality Footwear',
     }),
     defineField({
       name: 'description',
       type: 'text',
       title: 'Site Description',
-      initialValue: 'Step into quality. Designed in Switzerland. Premium footwear and accessories crafted with genuine materials.',
+      initialValue: 'Elevate your everyday with premium footwear and accessories made with genuine materials and uncompromising attention to detail.',
     }),
     defineField({
       name: 'keywords',
       type: 'array',
       title: 'SEO Keywords',
       of: [{ type: 'string' }],
-      initialValue: ['footwear', 'shoes', 'Swiss design', 'quality', 'leather', 'accessories'],
+      initialValue: ['footwear', 'shoes', 'premium quality', 'leather', 'accessories', 'craftsmanship'],
     }),
     defineField({
       name: 'siteUrl',
@@ -107,7 +107,7 @@ export default defineType({
           name: 'brandDescription',
           type: 'text',
           title: 'Brand Description',
-          initialValue: 'Step into quality. Designed in Switzerland. Premium footwear and accessories crafted with genuine materials.',
+          initialValue: 'Premium footwear and accessories crafted with genuine materials and uncompromising attention to detail.',
         },
         {
           name: 'quickLinks',
@@ -227,7 +227,7 @@ export default defineType({
                       title: 'Platform',
                       options: {
                         list: [
-                          { title: 'Twitter', value: 'twitter' },
+                          { title: 'X (Twitter)', value: 'x' },
                           { title: 'Facebook', value: 'facebook' },
                           { title: 'Instagram', value: 'instagram' },
                           { title: 'LinkedIn', value: 'linkedin' },
@@ -250,7 +250,7 @@ export default defineType({
           name: 'copyright',
           type: 'string',
           title: 'Copyright Text',
-          initialValue: '© 2025 Fitfoot. All rights reserved. Designed in Switzerland.',
+          initialValue: '© 2025 Fitfoot. All rights reserved.',
         },
       ],
     }),
