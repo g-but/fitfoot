@@ -50,7 +50,7 @@ class DeploymentMonitor {
   async checkDeploymentStatus() {
     try {
       // Get current deployment status
-      const deployments = execSync('vercel ls --scope=fitfoot --limit=1', { 
+      const deployments = execSync('vercel ls --limit=1', { 
         encoding: 'utf8',
         cwd: '/home/g/dev/fitfoot/apps/web'
       });
