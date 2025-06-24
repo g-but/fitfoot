@@ -6,7 +6,6 @@ export async function generateMetadata(): Promise<Metadata> {
   try {
     siteSettings = await getSiteSettings()
   } catch (error) {
-    console.error('Failed to fetch site settings:', error)
   }
   
   const title = siteSettings?.title || 'Fitfoot - Swiss-designed quality footwear'

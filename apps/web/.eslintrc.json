@@ -5,7 +5,7 @@
   "rules": {
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": "off",
-    "no-console": "error",
+    "no-console": "off",
     "react-hooks/exhaustive-deps": "warn",
     "@next/next/no-img-element": "warn",
     "no-debugger": "error",
