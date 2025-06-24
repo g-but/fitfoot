@@ -29,7 +29,7 @@ export async function POST(request: NextRequest) {
 
     // Generate password reset token
     const resetToken = randomBytes(32).toString('hex')
-    const expiresAt = new Date(Date.now() + 60 * 60 * 1000) // 1 hour
+    const _expiresAt = new Date(Date.now() + 60 * 60 * 1000) // 1 hour
 
     // For demo purposes, we'll simulate the password reset functionality
     // In a real implementation, you would:
@@ -49,14 +49,10 @@ export async function POST(request: NextRequest) {
     }
     
     // Simulate successful password reset request
-    console.log('📧 Password reset would be sent to:', email)
-    console.log('🔑 Reset token generated:', resetToken)
 
     // Here you would send the password reset email
     const resetUrl = `${process.env.NEXT_PUBLIC_APP_URL}/auth/reset-password?token=${resetToken}`
     
-    console.log('📧 Password reset email would be sent to:', email)
-    console.log('🔗 Reset URL:', resetUrl)
 
     return NextResponse.json({
       success: true,

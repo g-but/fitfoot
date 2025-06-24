@@ -35,7 +35,7 @@ interface RecentActivity {
 }
 
 export default function Dashboard() {
-  const { user, getAuthToken } = useAuth()
+  const { user, _getAuthToken } = useAuth()
   const [stats, setStats] = useState<UserStats>({
     totalOrders: 0,
     totalSpent: 0,

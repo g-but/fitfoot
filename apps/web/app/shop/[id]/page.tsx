@@ -188,7 +188,6 @@ export default function ProductPage() {
           url: window.location.href,
         });
       } catch (error) {
-        console.log('Error sharing:', error);
       }
     } else {
       navigator.clipboard.writeText(window.location.href);

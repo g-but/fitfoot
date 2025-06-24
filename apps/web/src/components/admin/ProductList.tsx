@@ -50,7 +50,7 @@ export const ProductList: React.FC<ProductListProps> = ({
 
   // Filter and sort products
   const filteredProducts = useMemo(() => {
-    let filtered = products.filter(product => {
+    const filtered = products.filter(product => {
       // Search filter
       if (filters.search) {
         const searchLower = filters.search.toLowerCase();

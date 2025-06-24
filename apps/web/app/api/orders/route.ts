@@ -358,7 +358,7 @@ async function sendOrderConfirmationEmail(order: any) {
   
       // Sending order confirmation email
   
-  const emailData = {
+  const _emailData = {
     to: order.customer_email || 'customer@example.com',
     subject: `Order Confirmation - ${order.order_number}`,
     template: 'order_confirmation',

@@ -164,7 +164,6 @@ export class SecurityMiddleware {
     };
 
     // In production, send to proper logging service (e.g., Winston, Sentry)
-    console.log('[AUDIT]', JSON.stringify(logEntry));
     
     // Store critical actions (failed logins, admin actions, etc.)
     if (this.isCriticalAction(request, response)) {
@@ -259,7 +258,6 @@ export class SecurityMiddleware {
 
   private async storeCriticalAuditLog(logEntry: any): Promise<void> {
     // In production, store in database or send to monitoring service
-    console.log('[CRITICAL_AUDIT]', JSON.stringify(logEntry));
     
     // Example: Store failed login attempts for brute force detection
     if (logEntry.url.includes('/api/auth/') && logEntry.responseStatus === 401) {

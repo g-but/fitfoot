@@ -40,12 +40,12 @@ interface ProductFilters {
 }
 
 function PowerfulAdminDashboard() {
-  const { adminUser } = useAuth();
+  const { _adminUser } = useAuth();
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [selectedProducts, setSelectedProducts] = useState<Set<string>>(new Set());
-  const [showBulkActions, setShowBulkActions] = useState(false);
+  const [_showBulkActions, _setShowBulkActions] = useState(false);
   const [filters, setFilters] = useState<ProductFilters>({
     search: '',
     status: 'all',

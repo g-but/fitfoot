@@ -20,7 +20,7 @@ interface Product {
 }
 
 function AnalyticsContent() {
-  const { adminUser } = useAuth();
+  const { _adminUser } = useAuth();
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);

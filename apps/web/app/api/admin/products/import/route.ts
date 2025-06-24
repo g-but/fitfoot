@@ -27,7 +27,7 @@ interface ImportResult {
 }
 
 // Validation schema for imported products
-const validateImportRow = (row: any, rowIndex: number): { isValid: boolean; errors: string[] } => {
+const validateImportRow = (row: any, _rowIndex: number): { isValid: boolean; errors: string[] } => {
   const errors: string[] = [];
   
   // Required fields
