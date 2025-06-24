@@ -8,7 +8,8 @@
     },
     "dev": {
       "cache": false,
-      "persistent": true
+      "persistent": true,
+      "env": ["PORT", "NEXT_PUBLIC_*", "SANITY_*", "DATABASE_URL"]
     },
     "lint": {
       "dependsOn": ["^lint"]

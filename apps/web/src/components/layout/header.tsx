@@ -7,7 +7,6 @@ import { Logo } from '@/components/ui/logo'
 import { useAuth } from '@/contexts/AuthContext'
 import { useCart } from '@/contexts/CartContext'
 import { useScrollHeader } from '@/hooks/use-scroll-header'
-import { getSiteSettings } from '@/lib/sanity.queries'
 import { SiteSettings } from '@/lib/types'
 import { cn } from '@/lib/utils'
 import { ChevronRight, Home, Info, Mail, Menu, Package, Search, ShoppingBag, X } from 'lucide-react'
@@ -63,21 +62,10 @@ export function HeaderClient({ siteSettings }: HeaderProps) {
   }, [isMobileMenuOpen])
 
   const toggleMobileMenu = () => {
-    console.log('🍔 MOBILE MENU TOGGLE CLICKED!', { 
-      currentState: isMobileMenuOpen, 
-      newState: !isMobileMenuOpen,
-      timestamp: new Date().toISOString(),
-      element: 'hamburger-button'
-    })
-    setIsMobileMenuOpen(prev => {
-      const newState = !prev
-      console.log('🔄 State updated:', { from: prev, to: newState })
-      return newState
-    })
+    setIsMobileMenuOpen(prev => !prev)
   }
 
   const closeMobileMenu = () => {
-    console.log('❌ CLOSING MOBILE MENU')
     setIsMobileMenuOpen(false)
   }
 
@@ -512,6 +500,9 @@ export function HeaderClient({ siteSettings }: HeaderProps) {
     </>
   )
 }
+
+// Import for server component only
+import { getSiteSettings } from '@/lib/sanity.queries'
 
 // Server Component Wrapper - Single export following DRY principle
 export async function Header() {
