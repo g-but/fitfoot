@@ -137,7 +137,6 @@ export const getSiteSettings = async (): Promise<SiteSettings | null> => {
       }
     `)
   } catch (error) {
-    console.warn('Sanity API call failed, using fallback settings:', error)
     // Return fallback settings for development
     return {
       _id: 'fallback',

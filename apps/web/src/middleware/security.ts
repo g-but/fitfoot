@@ -306,7 +306,6 @@ export function withSecurity(
 
       return secureResponse;
     } catch (error) {
-      console.error('Security middleware error:', error);
       
       // Log the error
       await security.auditLog(request);

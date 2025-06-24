@@ -32,7 +32,6 @@ export const trackWebVitals = () => {
     observer.observe({ entryTypes: ['largest-contentful-paint'] })
   } catch (e) {
     // PerformanceObserver not supported
-    console.warn('PerformanceObserver not supported')
   }
 }
 

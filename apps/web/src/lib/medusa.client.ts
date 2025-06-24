@@ -55,7 +55,6 @@ export const getProducts = async (params?: {
     const response = await medusa.store.product.list(params)
     return response.products || []
   } catch (error) {
-    console.error('Error fetching products:', error)
     return []
   }
 }
@@ -65,7 +64,6 @@ export const getProduct = async (id: string) => {
     const response = await medusa.store.product.retrieve(id)
     return response.product
   } catch (error) {
-    console.error('Error fetching product:', error)
     return null
   }
 }
@@ -75,7 +73,6 @@ export const getCollections = async () => {
     const response = await medusa.store.collection.list()
     return response.collections || []
   } catch (error) {
-    console.error('Error fetching collections:', error)
     return []
   }
 }
@@ -85,7 +82,6 @@ export const getCollection = async (id: string) => {
     const response = await medusa.store.collection.retrieve(id)
     return response.collection
   } catch (error) {
-    console.error('Error fetching collection:', error)
     return null
   }
 } 
