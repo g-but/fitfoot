@@ -88,8 +88,8 @@ async function populateContent() {
     const homePage = {
       _type: 'homePage',
       title: 'Home',
-      heroTitle: 'Step into quality.\nDesigned in Switzerland.',
-      heroSubtitle: 'Premium footwear and accessories crafted with genuine materials and Swiss precision.',
+      heroTitle: 'Elevate your everyday.\nCrafted to perfection.',
+      heroSubtitle: 'Premium footwear and accessories made with genuine materials and uncompromising attention to detail.',
       featuredProducts: createdProducts.map(product => ({
         _type: 'reference',
         _ref: product._id

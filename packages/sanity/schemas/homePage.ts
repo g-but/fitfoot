@@ -1,4 +1,4 @@
-import {defineType, defineField} from 'sanity'
+import { defineField, defineType } from 'sanity'
 
 export default defineType({
   name: 'homePage',
@@ -15,13 +15,13 @@ export default defineType({
       name: 'heroTitle',
       type: 'string',
       title: 'Hero Title',
-      initialValue: 'Step into quality. Designed in Switzerland.',
+      initialValue: 'Elevate your everyday. Crafted to perfection.',
     }),
     defineField({
       name: 'heroSubtitle',
       type: 'text',
       title: 'Hero Subtitle',
-      initialValue: 'Premium footwear and accessories crafted with genuine materials and Swiss precision.',
+      initialValue: 'Premium footwear and accessories made with genuine materials and uncompromising attention to detail.',
     }),
     defineField({
       name: 'heroImage',
@@ -46,19 +46,19 @@ export default defineType({
     defineField({
       name: 'aboutSection',
       type: 'object',
-      title: 'Swiss Craftsmanship Section',
+      title: 'Quality Excellence Section',
       fields: [
         {
           name: 'title',
           type: 'string',
           title: 'Section Title',
-          initialValue: 'Swiss Craftsmanship',
+          initialValue: 'Premium Craftsmanship',
         },
         {
           name: 'description',
           type: 'text',
           title: 'Description',
-          initialValue: 'Every Fitfoot product is designed with Swiss precision and crafted using only the finest materials. Our commitment to quality ensures that each piece not only looks exceptional but stands the test of time.',
+          initialValue: 'Every Fitfoot product is crafted using only the finest materials. Our commitment to quality ensures that each piece not only looks exceptional but stands the test of time.',
         },
         {
           name: 'features',
@@ -78,7 +78,7 @@ export default defineType({
           ],
           initialValue: [
             { text: '100% genuine leather' },
-            { text: 'Designed in Switzerland' },
+            { text: 'Artisan craftsmanship' },
             { text: 'Ethically made' },
           ],
         },

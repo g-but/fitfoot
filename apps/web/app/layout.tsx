@@ -1,8 +1,9 @@
 import { ErrorBoundary } from '@/components/error-boundary'
-import { Footer } from '@/components/layout/footer'
-import { Header } from '@/components/layout/header'
+import { RootLayoutContent } from '@/components/layout/RootLayoutContent'
 import { PerformanceMonitor } from '@/components/performance-monitor'
-import type { Metadata } from 'next'
+import { AuthProvider } from '@/contexts/AuthContext'
+import { CartProvider } from '@/contexts/CartContext'
+import type { Metadata, Viewport } from 'next'
 import { Inter, Playfair_Display } from 'next/font/google'
 import './globals.css'
 
@@ -20,14 +21,14 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Fitfoot - Premium Swiss Footwear & Accessories',
+    default: 'Fitfoot - Premium Footwear & Accessories',
     template: '%s | Fitfoot'
   },
-  description: 'Step into quality. Premium footwear and accessories designed in Switzerland, crafted with genuine materials and precision engineering. Experience Swiss luxury.',
+  description: 'Elevate your everyday with premium footwear and accessories crafted with genuine materials and uncompromising attention to detail. Experience timeless quality.',
   keywords: [
-    'Swiss footwear', 'premium sneakers', 'luxury accessories', 
+    'premium footwear', 'luxury sneakers', 'quality accessories', 
     'genuine leather', 'Swiss design', 'high-quality shoes', 
-    'sustainable fashion', 'artisan crafted', 'Swiss luxury'
+    'sustainable fashion', 'artisan crafted', 'premium lifestyle'
   ],
   authors: [{ name: 'Fitfoot Switzerland' }],
   creator: 'Fitfoot',
@@ -48,28 +49,23 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: process.env.NEXT_PUBLIC_SITE_URL || 'https://fitfoot.ch',
-    title: 'Fitfoot - Premium Swiss Footwear & Accessories',
-    description: 'Step into quality. Premium footwear and accessories designed in Switzerland, crafted with genuine materials and precision engineering.',
+    title: 'Fitfoot - Premium Footwear & Accessories',
+    description: 'Elevate your everyday with premium footwear and accessories crafted with genuine materials and uncompromising attention to detail.',
     siteName: 'Fitfoot',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Fitfoot - Premium Swiss Footwear',
+        alt: 'Fitfoot - Premium Footwear',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Fitfoot - Premium Swiss Footwear & Accessories',
-    description: 'Step into quality. Premium footwear and accessories designed in Switzerland.',
+    description: 'Elevate your everyday with premium footwear and accessories crafted to perfection.',
     images: ['/og-image.jpg'],
-  },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 5,
   },
   icons: {
     icon: '/favicon.ico',
@@ -77,6 +73,12 @@ export const metadata: Metadata = {
     apple: '/apple-touch-icon.png',
   },
   manifest: '/site.webmanifest',
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
 }
 
 export default function RootLayout({
@@ -88,16 +90,14 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <body className={`${inter.className} antialiased`}>
         <ErrorBoundary>
-          <PerformanceMonitor />
-          <div className="relative min-h-screen flex flex-col">
-            <Header />
-            <main className="flex-1">
-              <ErrorBoundary>
+          <AuthProvider>
+            <CartProvider>
+              <PerformanceMonitor />
+              <RootLayoutContent>
                 {children}
-              </ErrorBoundary>
-            </main>
-            <Footer />
-          </div>
+              </RootLayoutContent>
+            </CartProvider>
+          </AuthProvider>
         </ErrorBoundary>
       </body>
     </html>

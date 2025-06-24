@@ -4,8 +4,8 @@ import { ArrowRight, Award, Leaf, Shield, Users } from 'lucide-react'
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'About Us - Swiss Craftsmanship Excellence',
-  description: 'Learn about Fitfoot\'s commitment to Swiss design, premium materials, and ethical production. Discover our story and values.',
+  title: 'About Us - Premium Quality & Craftsmanship',
+  description: 'Learn about Fitfoot\'s commitment to premium materials, quality design, and ethical production. Discover our story and values.',
 }
 
 export default async function AboutPage() {
@@ -22,8 +22,8 @@ export default async function AboutPage() {
       icon: 'quality',
     },
     {
-      title: 'Swiss Design',
-      description: 'Our products embody Swiss precision, minimalism, and attention to detail.',
+      title: 'Premium Design',
+      description: 'Our products embody precision, minimalism, and attention to detail.',
       icon: 'design',
     },
     {
@@ -46,12 +46,12 @@ export default async function AboutPage() {
     { 
       name: 'Sarah Mueller', 
       role: 'Founder & CEO', 
-      bio: 'Passionate about creating exceptional products that combine Swiss design principles with sustainable practices and ethical manufacturing.' 
+      bio: 'Passionate about creating exceptional products that combine timeless design principles with sustainable practices and ethical manufacturing.' 
     },
     { 
       name: 'Thomas Schneider', 
       role: 'Head of Design', 
-      bio: 'With over 15 years in luxury goods design, Thomas brings Swiss precision and minimalist aesthetics to every product.' 
+      bio: 'With over 15 years in luxury goods design, Thomas brings precision and minimalist aesthetics to every product.' 
     },
     { 
       name: 'Elena Weber', 
@@ -96,7 +96,7 @@ export default async function AboutPage() {
                     <span className="gradient-gold-text block">Fitfoot</span>
                   </h1>
                   <p className="text-large text-muted-foreground leading-relaxed">
-                    {content.length > 0 ? content[0]?.children?.[0]?.text : 'Founded in Switzerland, Fitfoot represents the perfect fusion of traditional craftsmanship and modern design. We believe that quality footwear and accessories should be both beautiful and built to last.'}
+                    {content.length > 0 ? content[0]?.children?.[0]?.text : 'Founded with a passion for quality, Fitfoot represents the perfect fusion of traditional craftsmanship and modern design. We believe that quality footwear and accessories should be both beautiful and built to last.'}
                   </p>
                 </div>
                 
@@ -108,7 +108,7 @@ export default async function AboutPage() {
                   </div>
                   <div className="text-center">
                     <div className="text-3xl font-heading text-primary mb-2">100%</div>
-                    <div className="text-sm text-muted-foreground">Swiss Design</div>
+                    <div className="text-sm text-muted-foreground">Premium Quality</div>
                   </div>
                   <div className="text-center">
                     <div className="text-3xl font-heading text-primary mb-2">∞</div>
@@ -281,10 +281,10 @@ export default async function AboutPage() {
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-section font-heading text-background mb-6">
               Ready to Experience
-              <span className="gradient-gold-text block">Swiss Quality?</span>
+              <span className="gradient-gold-text block">Premium Quality?</span>
             </h2>
             <p className="text-large text-background/80 mb-12 leading-relaxed">
-              Join thousands of customers who trust Fitfoot for premium footwear and accessories that combine Swiss design with exceptional craftsmanship.
+              Join thousands of customers who trust Fitfoot for premium footwear and accessories that combine exceptional design with superior craftsmanship.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">

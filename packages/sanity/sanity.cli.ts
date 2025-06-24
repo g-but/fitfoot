@@ -1,9 +1,12 @@
-import {defineCliConfig} from 'sanity/cli'
+import { defineCliConfig } from 'sanity/cli'
 
 export default defineCliConfig({
   api: {
     projectId: 'm6r6y2se',
     dataset: 'production'
+  },
+  server: {
+    port: 3334,
   },
   /**
    * Enable auto-updates for studios.

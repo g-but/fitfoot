@@ -1,5 +1,5 @@
 import { client } from './sanity.client'
-import type { Product, HomePage, AboutPage, ContactInfo, ProductsPage, ContactPage, SiteSettings } from './types'
+import type { AboutPage, ContactInfo, ContactPage, HomePage, Product, ProductsPage, SiteSettings } from './types'
 
 // Product queries
 export const getAllProducts = async (): Promise<Product[]> => {
@@ -61,7 +61,7 @@ export const getHomePage = async (): Promise<HomePage | null> => {
     }
   `)
   
-  console.log('🏠 Home page data from Sanity:', JSON.stringify(data, null, 2))
+  // Development logging removed for production
   return data
 }
 
@@ -122,17 +122,46 @@ export const getContactPage = async (): Promise<ContactPage | null> => {
 }
 
 export const getSiteSettings = async (): Promise<SiteSettings | null> => {
-  return await client.fetch(`
-    *[_type == "siteSettings"][0] {
-      _id,
-      title,
-      description,
-      keywords,
-      siteUrl,
-      logo,
-      navigation,
-      headerCta,
-      footer
+  try {
+    return await client.fetch(`
+      *[_type == "siteSettings"][0] {
+        _id,
+        title,
+        description,
+        keywords,
+        siteUrl,
+        logo,
+        navigation,
+        headerCta,
+        footer
+      }
+    `)
+  } catch (error) {
+    console.warn('Sanity API call failed, using fallback settings:', error)
+    // Return fallback settings for development
+    return {
+      _id: 'fallback',
+      _type: 'siteSettings',
+      title: 'FitFoot',
+      description: 'Premium Swiss footwear and accessories',
+      keywords: ['footwear', 'swiss', 'premium'],
+      siteUrl: 'https://fitfoot.ch',
+      logo: {
+        text: 'FitFoot'
+      },
+      navigation: [
+        { label: 'Home', href: '/' },
+        { label: 'Shop', href: '/shop' },
+        { label: 'About', href: '/about' },
+        { label: 'Contact', href: '/contact' }
+      ],
+      headerCta: {
+        text: 'Shop Now',
+        href: '/shop'
+      },
+      footer: {
+        copyright: '© 2024 FitFoot. All rights reserved.'
+      }
     }
-  `)
+  }
 } 
