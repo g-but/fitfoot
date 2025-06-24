@@ -141,7 +141,7 @@ export default function AdminOrdersPage() {
     }
   };
 
-  const addTrackingNumber = async (orderId: string, trackingNumber: string, trackingUrl?: string) => {
+  const _addTrackingNumber = async (orderId: string, trackingNumber: string, trackingUrl?: string) => {
     try {
       setUpdating(true);
       const response = await fetch(`/api/admin/orders/${orderId}`, {

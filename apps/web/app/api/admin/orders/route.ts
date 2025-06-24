@@ -219,7 +219,6 @@ export async function GET(request: NextRequest) {
     // Sort by created date (newest first)
     filteredOrders.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
     
-    console.log(`📊 Admin fetched ${filteredOrders.length} orders`);
     
     return NextResponse.json(filteredOrders);
     

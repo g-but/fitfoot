@@ -1,7 +1,7 @@
 import { withSecurity } from '@/middleware/security';
 import { NextRequest, NextResponse } from 'next/server';
 
-const MEDUSA_BASE_URL = process.env.MEDUSA_BASE_URL || 'http://localhost:9000';
+const _MEDUSA_BASE_URL = process.env._MEDUSA_BASE_URL || 'http://localhost:9000';
 
 interface Product {
   id: string;

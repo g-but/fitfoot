@@ -50,9 +50,10 @@ class DeploymentMonitor {
   async checkDeploymentStatus() {
     try {
       // Get current deployment status
-      const deployments = execSync('vercel ls --yes', { 
+      const deployments = execSync('vercel ls fitfoot --scope orangecat --yes', { 
         encoding: 'utf8',
-        cwd: '/home/g/dev/fitfoot/apps/web'
+        cwd: '/home/g/dev/fitfoot/apps/web',
+        env: { ...process.env, FORCE_COLOR: '0' }
       });
 
       const lines = deployments.split('\n').filter(line => line.trim());
@@ -131,7 +132,7 @@ class DeploymentMonitor {
     try {
       this.log(`📋 Fetching deployment logs for: ${deploymentUrl}`, 'INFO');
       
-      const logs = execSync(`vercel logs ${deploymentUrl}`, { 
+      const logs = execSync(`vercel logs ${deploymentUrl} --scope orangecat`, { 
         encoding: 'utf8',
         cwd: '/home/g/dev/fitfoot/apps/web'
       });

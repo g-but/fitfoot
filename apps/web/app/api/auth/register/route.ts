@@ -79,8 +79,6 @@ export async function POST(request: NextRequest) {
     // For now, we'll just return success with the token for testing
     const confirmationUrl = `${process.env.NEXT_PUBLIC_APP_URL}/auth/confirm-email?token=${confirmationToken}`
     
-    console.log('📧 Email confirmation would be sent to:', email)
-    console.log('🔗 Confirmation URL:', confirmationUrl)
 
     return NextResponse.json({
       success: true,

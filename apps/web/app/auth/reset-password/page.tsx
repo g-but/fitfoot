@@ -19,7 +19,7 @@ function ResetPasswordForm() {
   const [token, setToken] = useState<string | null>(null);
   
   const { resetPassword, clearError } = useAuth();
-  const router = useRouter();
+  const _router = useRouter();
   const searchParams = useSearchParams();
 
   useEffect(() => {

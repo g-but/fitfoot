@@ -194,7 +194,7 @@ describe('Dashboard Page', () => {
 
   it('should handle different sustainability score levels', async () => {
     // Test Eco Warrior level (75-89%)
-    const statsWithMidScore = {
+    const _statsWithMidScore = {
       totalOrders: 5,
       totalSpent: 1200,
       sustainabilityScore: 80,

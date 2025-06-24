@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 // In-memory cart storage (in production, this would be in a database)
-let carts: Record<string, any> = {}
+const _carts: Record<string, any> = {}
 
 export async function POST(request: NextRequest) {
   try {

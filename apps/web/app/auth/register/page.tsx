@@ -22,7 +22,7 @@ export default function CustomerRegister() {
   const [confirmationUrl, setConfirmationUrl] = useState(''); // For development
   
   const { registerCustomer, clearError } = useAuth();
-  const router = useRouter();
+  const _router = useRouter();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({

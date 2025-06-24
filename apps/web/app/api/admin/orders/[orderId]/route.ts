@@ -160,7 +160,6 @@ export async function DELETE(
 
 // Helper function to send status update notifications
 async function sendStatusUpdateNotification(order: any, newStatus: string) {
-  console.log(`📧 Sending status update notification for order ${order.order_number}`);
   
   const statusMessages = {
     confirmed: 'Your order has been confirmed and is being prepared.',
@@ -170,7 +169,7 @@ async function sendStatusUpdateNotification(order: any, newStatus: string) {
     cancelled: 'Your order has been cancelled. If you have questions, please contact us.',
   };
   
-  const emailData = {
+  const _emailData = {
     to: order.customer_email || 'customer@example.com',
     subject: `Order Update - ${order.order_number}`,
     template: 'order_status_update',
@@ -188,7 +187,6 @@ async function sendStatusUpdateNotification(order: any, newStatus: string) {
   // Simulate email sending
   return new Promise((resolve) => {
     setTimeout(() => {
-      console.log(`✅ Status update email sent for order ${order.order_number}`);
       resolve(true);
     }, 500);
   });

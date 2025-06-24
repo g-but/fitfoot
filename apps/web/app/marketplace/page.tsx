@@ -83,7 +83,7 @@ const sampleShoes: ShoeProduct[] = [
   }
 ]
 
-const conditionColors = {
+const _conditionColors = {
   new: 'bg-green-100 text-green-800',
   excellent: 'bg-blue-100 text-blue-800',
   very_good: 'bg-purple-100 text-purple-800',
@@ -91,7 +91,7 @@ const conditionColors = {
   fair: 'bg-orange-100 text-orange-800'
 }
 
-const refurbishmentLevels = {
+const _refurbishmentLevels = {
   none: { label: 'Original', icon: '👟', color: 'bg-gray-100 text-gray-600' },
   basic: { label: 'Basic Clean', icon: '✨', color: 'bg-blue-100 text-blue-600' },
   artisanal: { label: 'Artisanal Refurb', icon: '🎨', color: 'bg-purple-100 text-purple-600' },
@@ -99,12 +99,12 @@ const refurbishmentLevels = {
 }
 
 export default function MarketplacePage() {
-  const [shoes, setShoes] = useState<ShoeProduct[]>(sampleShoes)
-  const [activeFilter, setActiveFilter] = useState('all')
-  const [showFilters, setShowFilters] = useState(false)
-  const [sortBy, setSortBy] = useState('newest')
+  const [_shoes, setShoes] = useState<ShoeProduct[]>(sampleShoes)
+  const [_activeFilter, _setActiveFilter] = useState('all')
+  const [_showFilters, _setShowFilters] = useState(false)
+  const [_sortBy, _setSortBy] = useState('newest')
 
-  const toggleLike = (shoeId: string) => {
+  const _toggleLike = (shoeId: string) => {
     setShoes(prev => prev.map(shoe => 
       shoe.id === shoeId 
         ? { ...shoe, isLiked: !shoe.isLiked, likes: shoe.isLiked ? shoe.likes - 1 : shoe.likes + 1 }
@@ -112,14 +112,14 @@ export default function MarketplacePage() {
     ))
   }
 
-  const formatPrice = (price: number) => {
+  const _formatPrice = (price: number) => {
     return new Intl.NumberFormat('de-CH', {
       style: 'currency',
       currency: 'CHF'
     }).format(price)
   }
 
-  const getDiscountPercentage = (original: number, current: number) => {
+  const _getDiscountPercentage = (original: number, current: number) => {
     return Math.round(((original - current) / original) * 100)
   }
 
@@ -131,8 +131,8 @@ export default function MarketplacePage() {
         <div className="bg-white rounded-lg p-6 mb-8">
           <h2 className="text-xl font-semibold mb-4">🌱 Zero Waste Shoe Marketplace</h2>
           <p className="text-gray-600 mb-4">
-            Buy and sell shoes with our revolutionary artisanal refurbishment technology. 
-            Every purchase saves the environment while giving shoes a beautiful second life.
+            Buy and sell _shoes with our revolutionary artisanal refurbishment technology. 
+            Every purchase saves the environment while giving _shoes a beautiful second life.
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
