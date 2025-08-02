@@ -56,7 +56,7 @@
   "dependencies": {
     "@medusajs/link-modules": "^2.8.4",
     "@medusajs/medusa": "^2.8.4",
-    "@medusajs/workflows-sdk": "^2.8.4",
+    "@medusajs/workflows-sdk": "^2.8.7",
     "node-fetch": "^2.7.0"
   },
   "overrides": {
