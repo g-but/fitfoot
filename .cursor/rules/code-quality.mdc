@@ -1,0 +1,72 @@
+---
+description: "FitFoot code quality - Turborepo monorepo patterns"
+alwaysApply: true
+---
+
+# Code Quality Rules
+
+## Architecture
+
+Turborepo monorepo with three apps:
+- `apps/web/` - Next.js storefront (port 3005)
+- `apps/sanity/` - Sanity CMS (port 3334)
+- `apps/medusa/` - Commerce backend (port 9000)
+
+## Core Principles
+
+### 1. DRY - Don't Repeat Yourself
+- Shared code goes in `packages/`
+- Use workspace dependencies: `@fitfoot/types`
+- Centralize API clients
+
+### 2. SSOT - Single Source of Truth
+| Data | Location |
+|------|----------|
+| Product Commerce | Medusa database |
+| Product Content | Sanity CMS |
+| Shared Types | `packages/types/` |
+| Config | Individual app `.env` files |
+
+### 3. Separation of Concerns
+- **Medusa**: Products, orders, customers, inventory
+- **Sanity**: Marketing content, blog, brand info
+- **Next.js**: Render combined data, handle UI
+
+## Workspace Rules
+
+```bash
+# CORRECT - Use Turborepo
+npm run dev
+npm run dev-web
+
+# WRONG - Direct app access
+cd apps/web && npm run dev
+```
+
+## TypeScript Standards
+
+```typescript
+// Named exports, explicit types
+export interface Product {
+  id: string;
+  title: string;
+  price: number;
+  sanityContent?: ProductContent;
+}
+
+// Combine data sources
+export async function getProduct(handle: string): Promise<Product> {
+  const [medusa, sanity] = await Promise.all([
+    fetchFromMedusa(handle),
+    fetchFromSanity(handle),
+  ]);
+  return { ...medusa, sanityContent: sanity };
+}
+```
+
+## Don't
+
+- Import between apps directly
+- Bypass Turborepo commands
+- Mix commerce/content responsibilities
+- Hardcode URLs (use env vars)

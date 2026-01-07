@@ -1,0 +1,72 @@
+---
+description: "Testing guidelines for FitFoot"
+alwaysApply: false
+globs: ["**/*.test.*", "**/*.spec.*", "**/tests/**"]
+---
+
+# Testing Rules
+
+## Test Commands
+
+```bash
+# All tests
+npm run test
+
+# Integration tests
+npm run test-all
+
+# E2E shopping flow
+npm run test-e2e
+
+# Health check all services
+npm run health
+
+# Validate Supabase connection
+npm run validate-supabase
+```
+
+## Health Checks
+
+Before running tests, verify all services:
+```bash
+npm run health
+# Should show:
+# ✓ Web (3005)
+# ✓ Sanity (3334)
+# ✓ Medusa (9000)
+```
+
+## E2E Testing
+
+```javascript
+// scripts/e2e-shopping-flow.js
+// Tests complete shopping flow:
+// 1. Browse products
+// 2. Add to cart
+// 3. Checkout
+// 4. Order confirmation
+```
+
+## Integration Tests
+
+```javascript
+// scripts/test-integration.js
+// Tests:
+// - Medusa API responses
+// - Sanity content fetching
+// - Data combination in Next.js
+```
+
+## Test Quality
+
+- Test user flows end-to-end
+- Mock external payment providers
+- Test both Medusa and Sanity data
+- Verify deployment monitor is running
+
+## Before Committing
+
+1. `npm run health` - All services running
+2. `npm run test` - Tests pass
+3. `npm run build` - Build succeeds
+4. Check deployment monitor status
