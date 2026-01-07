@@ -9,7 +9,7 @@
     "start": "sanity start"
   },
   "dependencies": {
-    "sanity": "^3.36.4",
+    "sanity": "^5.2.0",
     "@sanity/vision": "^3.36.4",
     "styled-components": "^6.1.15",
     "react": "^18.2.0",
