@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@medusajs/js-sdk": "^2.8.3",
-    "@medusajs/types": "^2.8.3",
+    "@medusajs/types": "^2.12.4",
     "@portabletext/react": "^3.0.11",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-navigation-menu": "^1.1.4",
