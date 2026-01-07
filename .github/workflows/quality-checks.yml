@@ -191,7 +191,7 @@ jobs:
         curl -f https://fitfoot.ch/api/health || exit 1
         
     - name: Notify Sentry of deployment
-      uses: getsentry/action-release@v1
+      uses: getsentry/action-release@v3
       env:
         SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
         SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
