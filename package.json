@@ -54,7 +54,7 @@
     "node": ">=20"
   },
   "dependencies": {
-    "@medusajs/link-modules": "^2.8.4",
+    "@medusajs/link-modules": "^2.8.7",
     "@medusajs/medusa": "^2.8.4",
     "@medusajs/workflows-sdk": "^2.8.4",
     "node-fetch": "^2.7.0"
