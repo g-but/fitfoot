@@ -1,5 +1,9 @@
 # FitFoot - Swiss Sustainable Footwear Platform
 
+@~/.claude/CLAUDE.md
+
+---
+
 ## Overview
 
 FitFoot is a **Turborepo monorepo** e-commerce platform for Swiss-designed sustainable footwear. It combines Next.js storefront, Sanity CMS, and Medusa commerce backend.
@@ -105,4 +109,4 @@ npm run health         # Health check all services
 
 ---
 
-**See `AGENTS.md` for universal agent guidelines.**
+**Last Updated**: 2026-01-23
