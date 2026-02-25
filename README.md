@@ -1,29 +1,32 @@
-# FitFoot - Swiss Sustainable Footwear Platform
+# FitFoot
 
-## 🚨 **AUTOMATED DEPLOYMENT SYSTEM - ALWAYS KEEP RUNNING**
+Swiss sustainable footwear e-commerce platform built with Next.js and TypeScript.
 
-**⚠️ IMPORTANT: This system eliminates manual deployment monitoring forever!**
+## About
 
-### **🔄 Monitor Status** (Check this first!)
+FitFoot connects conscious consumers with sustainably produced footwear from Swiss and European manufacturers. The platform emphasizes transparency in sourcing, materials, and production.
+
+## Tech Stack
+
+- **Framework**: Next.js / React
+- **Language**: TypeScript
+- **Deployment**: Vercel
+
+## Development
+
 ```bash
-./scripts/monitor-status.sh
+npm install
+npm run dev
 ```
 
-### **🚀 Start Monitoring** (If not running)
+## Deployment Monitoring
+
+Automated deployment monitoring is available for production:
+
 ```bash
-./scripts/start-monitor.sh
+./scripts/monitor-status.sh   # Check status
+./scripts/start-monitor.sh    # Start monitoring
+tail -f logs/deployment-monitor.log  # Real-time logs
 ```
 
-### **📋 Real-time Logs** (Instead of copying Vercel logs)
-```bash
-tail -f logs/deployment-monitor.log
-```
-
-**✅ When Active**: Zero manual intervention needed - system handles everything automatically  
-**❌ When Stopped**: You'll need to manually monitor deployments and copy-paste logs again
-
----
-
-## About FitFoot
-
-FitFoot is a Swiss-designed sustainable footwear e-commerce platform built with modern web technologies. 
+When active, the system handles deployment monitoring automatically with zero manual intervention.
