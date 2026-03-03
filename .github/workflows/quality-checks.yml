@@ -46,7 +46,7 @@ jobs:
       working-directory: ${{ matrix.workspace }}
       
     - name: Upload coverage reports
-      uses: codecov/codecov-action@v3
+      uses: codecov/codecov-action@v5
       with:
         file: ${{ matrix.workspace }}/coverage/lcov.info
         flags: ${{ matrix.workspace }}
