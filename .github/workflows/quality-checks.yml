@@ -90,7 +90,7 @@ jobs:
       working-directory: apps/web
       
     - name: Upload test results
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v7
       if: failure()
       with:
         name: playwright-test-results
