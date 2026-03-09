@@ -1,0 +1,118 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database (via Supabase)
+  db:
+    image: postgres:15-alpine
+    container_name: fitfoot-db
+    environment:
+      POSTGRES_DB: fitfoot
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./scripts/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d fitfoot"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - fitfoot-network
+
+  # Redis for caching and sessions
+  redis:
+    image: redis:7-alpine
+    container_name: fitfoot-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+    networks:
+      - fitfoot-network
+
+  # Medusa Backend API
+  medusa:
+    build:
+      context: ./apps/medusa
+      dockerfile: Dockerfile
+    container_name: fitfoot-medusa
+    ports:
+      - "9000:9000"
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/fitfoot
+      - REDIS_URL=redis://redis:6379
+      - JWT_SECRET=your-super-secret-jwt-key
+      - COOKIE_SECRET=your-super-secret-cookie-key
+    volumes:
+      - ./apps/medusa:/app
+      - /app/node_modules
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - fitfoot-network
+    restart: unless-stopped
+
+  # Next.js Frontend
+  web:
+    build:
+      context: ./apps/web
+      dockerfile: Dockerfile
+    container_name: fitfoot-web
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - NEXT_PUBLIC_MEDUSA_BACKEND_URL=http://medusa:9000
+      - NEXT_PUBLIC_SUPABASE_URL=http://localhost:54321
+      - NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+    volumes:
+      - ./apps/web:/app
+      - /app/node_modules
+      - /app/.next
+    depends_on:
+      - medusa
+    networks:
+      - fitfoot-network
+    restart: unless-stopped
+
+  # Sanity Studio (Content Management)
+  sanity:
+    build:
+      context: ./packages/sanity
+      dockerfile: Dockerfile
+    container_name: fitfoot-sanity
+    ports:
+      - "3333:3333"
+    environment:
+      - NODE_ENV=development
+      - SANITY_STUDIO_PROJECT_ID=your-project-id
+      - SANITY_STUDIO_DATASET=production
+    volumes:
+      - ./packages/sanity:/app
+      - /app/node_modules
+    networks:
+      - fitfoot-network
+    restart: unless-stopped
+
+networks:
+  fitfoot-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
