@@ -14,10 +14,12 @@ dist/
 
 # Environment variables
 .env
+.env.*
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+.envrc
 
 # Vercel
 .vercel
@@ -42,7 +44,7 @@ ehthumbs.db
 Thumbs.db
 
 # Logs
-logs
+logs/
 *.log
 
 # Runtime data
